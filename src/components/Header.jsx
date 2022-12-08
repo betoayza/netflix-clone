@@ -3,12 +3,9 @@ import coverImage from "../img/portada-netflix-clone.jpg";
 
 export const Header = () => {
   return (
-    <div>
-      <img
-        src={coverImage}
-        className="img-fluid rounded-top"
-        alt="Cover image"
-      />
+    <div className={"text-center"} style={{ color: "#e8f48c" }}>
+      <h1>Netflix Clone</h1>
+      <img src={coverImage} className="img-fluid rounded" alt="Cover image" />
     </div>
   );
 };

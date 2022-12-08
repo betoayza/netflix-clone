@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Header } from "./Header";
 import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { Film } from "./Film";
-import { NavBar } from "./NavBar";
 
-
-export const NetflixClone = () => {
-  const [films, setFilms] = useState([]);
+export const MoviesTrending = () => {
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    const getFilms = async () => {
+    const getMovies = async () => {
       const options = {
         headers: {
           // "Content-Type": "application/json",
@@ -29,23 +26,23 @@ export const NetflixClone = () => {
         .then((res) => {
           console.log(res.data);
           if (res.data) {
-            setFilms(res.data);
+            setMovies(res.data);
           }
         })
         .catch((error) => error);
     };
-    getFilms();
+    getMovies();
   }, []);
 
   return (
-    <div className={"container"}>
-      <Header />
+    <div className={"container text-center"}>
+      <h2 style={{ color: "#e8f48c" }}>Trending</h2>
       <div
         className={"row row-cols-auto p-2 border"}
         style={{ display: "flex", justifyContent: "center" }}
       >
-        {films.length ? (
-          films.map((film, index) => {
+        {movies.length ? (
+          movies.map((film, index) => {
             return <Film key={index} film={film} />;
           })
         ) : (
