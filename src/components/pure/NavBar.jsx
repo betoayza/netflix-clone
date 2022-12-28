@@ -3,52 +3,52 @@ import React from "react";
 export const NavBar = () => {
   return (
     <div>
-      <nav class="navbar navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+      <nav className="navbar navbar-dark bg-dark fixed-top">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">
             Netflix Clone
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasDarkNavbar"
             aria-controls="offcanvasDarkNavbar"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            class="offcanvas offcanvas-end text-bg-dark"
-            tabindex="-1"
+            className="offcanvas offcanvas-end text-bg-dark"
+            tabIndex="-1"
             id="offcanvasDarkNavbar"
             aria-labelledby="offcanvasDarkNavbarLabel"
           >
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+            <div className="offcanvas-header">
+              <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">
                 Netflix Clone
               </h5>
               <button
                 type="button"
-                class="btn-close btn-close-white"
+                className="btn-close btn-close-white"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">
+            <div className="offcanvas-body">
+              <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li className="nav-item">
+                  <a className="nav-link active" aria-current="page" href="/">
                     Home
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
                     Link
                   </a>
                 </li>
-                <li class="nav-item dropdown">
+                <li className="nav-item dropdown">
                   <a
-                    class="nav-link dropdown-toggle"
+                    className="nav-link dropdown-toggle"
                     href="#"
                     role="button"
                     data-bs-toggle="dropdown"
@@ -56,43 +56,43 @@ export const NavBar = () => {
                   >
                     Movies
                   </a>
-                  <ul class="dropdown-menu dropdown-menu-dark">
+                  <ul className="dropdown-menu dropdown-menu-dark">
                     <li>
-                      <a class="dropdown-item" href="/movies/trending">
+                      <a className="dropdown-item" href="/movies/trending">
                         Trending
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="/movies/popular">
+                      <a className="dropdown-item" href="/movies/popular">
                         Popular
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="/movies/recommended">
+                      <a className="dropdown-item" href="/movies/recommended">
                         Recommended
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="/movies/played">
+                      <a className="dropdown-item" href="/movies/played">
                         Played
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="/movies/watched">
+                      <a className="dropdown-item" href="/movies/watched">
                         Watched
                       </a>
                     </li>
                   </ul>
                 </li>
               </ul>
-              <form class="d-flex mt-3" role="search">
+              <form className="d-flex mt-3" role="search">
                 <input
-                  class="form-control me-2"
+                  className="form-control me-2"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <button class="btn btn-success" type="submit">
+                <button className="btn btn-success" type="submit">
                   Search
                 </button>
               </form>

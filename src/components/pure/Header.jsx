@@ -1,5 +1,6 @@
 import React from "react";
-import coverImage from "../img/portada-netflix-clone.jpg";
+import coverImage from "../../img/portada-netflix-clone.jpg";
+//"img/portada-netflix-clone.jpg";
 
 export const Header = () => {
   return (
