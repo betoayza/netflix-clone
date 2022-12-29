@@ -34,7 +34,7 @@ function App() {
 
           <Route
             exact
-            path="/movies/:slug"
+            path="/movies/:slug/:imdbID"
             element={<Components.MovieDescription />}
           />
 

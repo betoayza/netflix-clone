@@ -43,7 +43,7 @@ export const Movie = ({ movie }) => {
   return (
     movieData && (
       <div className={"m-1"}>
-        <NavLink to={`/movies/${movie.ids.slug}`}>
+        <NavLink to={`/movies/${movie.ids.slug}/${movieData.imdbID}`}>
           {({ isActive }) => (
             <a
               className={isActive ? "nav-link" : "nav-link"}

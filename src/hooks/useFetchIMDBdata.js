@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export const useFetchMovieData = (imdbID) => {
-  const [movie, setMovie] = useState(null);
   console.log(imdbID); //works
+  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     const getMovieData = async () => {

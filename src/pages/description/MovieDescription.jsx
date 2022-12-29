@@ -5,8 +5,10 @@ import { useFetchMovieData } from "../../hooks/useFetchMovieData";
 
 export const MovieDescription = () => {
   const [movie, setMovie] = useState(null);
-  let { slug, poster } = useParams();
-  const movieData = useFetchMovieData(movie ? movie.ids.imdb : null);
+  // const [movieData, setMovieData] = useState(null);
+  let { slug, imdbID } = useParams();
+  console.log(slug, imdbID); //works
+  let movieData = useFetchMovieData(imdbID);
   console.log(movieData);
 
   useEffect(() => {
@@ -19,7 +21,7 @@ export const MovieDescription = () => {
           // Accept: "application/json",
           "trakt-api-key":
             "2f65384e8f78e76a296c8d382d90751aaa657ebd6ae035fe7ce19075d2ce5023",
-          "trakt-api-version": "2",
+          "trakt-api-version": 2,
           Authorization: `Bearer ${import.meta.env.ACCESS_TOKEN}`,
         },
         timeout: 3000,
@@ -29,8 +31,10 @@ export const MovieDescription = () => {
         .get(`https://api.trakt.tv/movies/${slug}`, options)
         .then((res) => {
           console.log(res.data);
+
           if (res.data) {
             setMovie(res.data);
+            console.log(movieData);
           }
         })
         .catch((error) => error);
@@ -40,20 +44,37 @@ export const MovieDescription = () => {
 
   return (
     movie && (
-      <div style={{ color: "white" }}>
-        {/* <img src={poster} className="img-fluid rounded-top" alt="Movie" /> */}
+      <div style={{ color: "white", display: "grid", placeItems: "center" }}>
+        <img
+          src={movieData.Poster}
+          className="img-fluid img-thumbnail"
+          alt="Movie"
+        />
+        <br />
         <h3>Title:</h3>
         <p>{movie.title}</p>
+        <h3>Genre:</h3>
+        <p>{movieData.Genre}</p>
         <h3>Synopsis:</h3>
-        <p>{movie.plot}</p>
+        <p>{movieData.Plot}</p>
         <h3>Director:</h3>
-        <p>{movie.Director}</p>
+        <p>{movieData.Director}</p>
         <h3>Actors:</h3>
-        <p>{movie.Actors}</p>
+        <p>{movieData.Actors}</p>
         <h3>Country:</h3>
-        <p>{movie.Country}</p>
+        <p>{movieData.Country}</p>
         <h3>Year:</h3>
-        <p>{movie.year}</p>
+        <p>{movieData.Year}</p>
+        <h3>Awards:</h3>
+        <p>{movieData.Awards}</p>
+        <h3>Ratings:</h3>
+        {movieData.Ratings.map((rating, index) => {
+          return (
+            <p key={index}>
+              {rating.Source}: {rating.Value}
+            </p>
+          );
+        })}
       </div>
     )
   );

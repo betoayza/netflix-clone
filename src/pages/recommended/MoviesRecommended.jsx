@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { api } from "../../api/api";
+import { Loader } from "../../components/pure/Loader";
 import { Movie } from "../../components/pure/Movie";
 
 export const MoviesRecommended = () => {
   const [movies, setMovies] = useState([]);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     const getMovies = async () => {
@@ -28,6 +30,7 @@ export const MoviesRecommended = () => {
           console.log(res.data);
           if (res.data) {
             setMovies(res.data);
+            setLoader(false);
           }
         })
         .catch((error) => error);
@@ -35,7 +38,9 @@ export const MoviesRecommended = () => {
     getMovies();
   }, []);
 
-  return (
+  return loader ? (
+    <Loader />
+  ) : (
     <div className={"container text-center"}>
       <h2 style={{ color: "#e8f48c" }}>Recommended</h2>
       <div
