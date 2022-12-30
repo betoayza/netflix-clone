@@ -51,30 +51,37 @@ export const MovieDescription = () => {
           alt="Movie"
         />
         <br />
-        <h3>Title:</h3>
-        <p>{movie.title}</p>
-        <h3>Genre:</h3>
-        <p>{movieData.Genre}</p>
-        <h3>Synopsis:</h3>
-        <p>{movieData.Plot}</p>
-        <h3>Director:</h3>
-        <p>{movieData.Director}</p>
-        <h3>Actors:</h3>
-        <p>{movieData.Actors}</p>
-        <h3>Country:</h3>
-        <p>{movieData.Country}</p>
-        <h3>Year:</h3>
-        <p>{movieData.Year}</p>
-        <h3>Awards:</h3>
-        <p>{movieData.Awards}</p>
-        <h3>Ratings:</h3>
-        {movieData.Ratings.map((rating, index) => {
-          return (
-            <p key={index}>
-              {rating.Source}: {rating.Value}
-            </p>
-          );
-        })}
+        <div
+          className={"border text-center"}
+          style={{ display: "grid", placeItems: "center" }}
+        >
+          <h3>Title:</h3>
+          <p>{movie.title}</p>
+          <h3>Genre:</h3>
+          <p>{movieData.Genre}</p>
+          <h3>Synopsis:</h3>
+          <div className={"w-50"}>
+            <p className={"text-break"}>{movieData.Plot}</p>
+          </div>
+          <h3>Director:</h3>
+          <p>{movieData.Director}</p>
+          <h3>Actors:</h3>
+          <p>{movieData.Actors}</p>
+          <h3>Country:</h3>
+          <p>{movieData.Country}</p>
+          <h3>Year:</h3>
+          <p>{movieData.Year}</p>
+          <h3>Awards:</h3>
+          <p>{movieData.Awards}</p>
+          <h3>Ratings:</h3>
+          {movieData.Ratings.map((rating, index) => {
+            return (
+              <p key={index}>
+                {rating.Source}: {rating.Value}
+              </p>
+            );
+          })}
+        </div>
       </div>
     )
   );

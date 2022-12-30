@@ -5,7 +5,7 @@ import { NavBar } from "./components/pure/NavBar";
 
 function App() {
   return (
-    <div className="App h-auto">
+    <div className="App h-auto" style={{ maxWidth: "100" }}>
       <NavBar />
       <br />
       <br />
@@ -38,9 +38,13 @@ function App() {
             element={<Components.MovieDescription />}
           />
 
-          {/* <Route exact path="/about" element={<Components.About />} />
+          <Route exact path="/login" element={<Components.Login />} />
 
-          <Route exact path="*" element={<Components.Error404 />} /> */}
+          <Route exact path="/signup" element={<Components.SignUp />} />
+
+          {/* <Route exact path="/about" element={<Components.About />} /> */}
+
+          <Route exact path="*" element={<Components.Error404 />} />
         </Routes>
       </BrowserRouter>
     </div>
