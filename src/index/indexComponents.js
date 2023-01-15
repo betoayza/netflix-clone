@@ -6,7 +6,7 @@ import { MovieDescription } from "../pages/description/MovieDescription";
 import { Login } from "../components/pure/forms/Login";
 import { SignUp } from "../components/pure/forms/SignUp";
 import { Error404 } from "../pages/404/Error404";
-
+import { MoviesWatched } from "../pages/watched/MoviesWatched";
 
 export {
   MoviesTrending,
@@ -16,5 +16,6 @@ export {
   MovieDescription,
   Login,
   SignUp,
-  Error404
+  Error404,
+  MoviesWatched,
 };

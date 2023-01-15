@@ -3,12 +3,20 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useFetchMovieData } from "../../hooks/useFetchMovieData";
 
+const header1Style = {
+  color: "#7b68ee",
+};
+
+const header3Style = {
+  color: "#e8f48c",
+};
+
 export const MovieDescription = () => {
   const [movie, setMovie] = useState(null);
   // const [movieData, setMovieData] = useState(null);
   let { slug, imdbID } = useParams();
   console.log(slug, imdbID); //works
-  let movieData = useFetchMovieData(imdbID);
+  let { movieData } = useFetchMovieData(imdbID);
   console.log(movieData);
 
   useEffect(() => {
@@ -42,38 +50,50 @@ export const MovieDescription = () => {
     getMovie();
   }, []);
 
+  const handlePlay = () => {
+    alert("Not working for now...");
+  };
+
   return (
     movie && (
       <div style={{ color: "white", display: "grid", placeItems: "center" }}>
+        <h1 style={header1Style}>{movie.title}</h1>
         <img
           src={movieData.Poster}
           className="img-fluid img-thumbnail"
           alt="Movie"
         />
+        <button
+          type="button"
+          className="btn btn-success mt-2"
+          onClick={handlePlay}
+        >
+          Play
+        </button>
         <br />
         <div
-          className={"border text-center"}
+          className={"text-center"}
           style={{ display: "grid", placeItems: "center" }}
         >
-          <h3>Title:</h3>
+          <h3 style={header3Style}>Title:</h3>
           <p>{movie.title}</p>
-          <h3>Genre:</h3>
+          <h3 style={header3Style}>Genre:</h3>
           <p>{movieData.Genre}</p>
-          <h3>Synopsis:</h3>
+          <h3 style={header3Style}>Synopsis:</h3>
           <div className={"w-50"}>
             <p className={"text-break"}>{movieData.Plot}</p>
           </div>
-          <h3>Director:</h3>
+          <h3 style={header3Style}>Director:</h3>
           <p>{movieData.Director}</p>
-          <h3>Actors:</h3>
+          <h3 style={header3Style}>Actors:</h3>
           <p>{movieData.Actors}</p>
-          <h3>Country:</h3>
+          <h3 style={header3Style}>Country:</h3>
           <p>{movieData.Country}</p>
-          <h3>Year:</h3>
+          <h3 style={header3Style}>Year:</h3>
           <p>{movieData.Year}</p>
-          <h3>Awards:</h3>
+          <h3 style={header3Style}>Awards:</h3>
           <p>{movieData.Awards}</p>
-          <h3>Ratings:</h3>
+          <h3 style={header3Style}>Ratings:</h3>
           {movieData.Ratings.map((rating, index) => {
             return (
               <p key={index}>

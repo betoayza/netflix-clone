@@ -28,7 +28,7 @@ function App() {
 
           <Route
             exact
-            path="/movies/recommended"
+            path="/movies/recommended/weekly"
             element={<Components.MoviesRecommended />}
           />
 
@@ -36,6 +36,12 @@ function App() {
             exact
             path="/movies/:slug/:imdbID"
             element={<Components.MovieDescription />}
+          />
+
+          <Route
+            exact
+            path="/movies/watched/weekly"
+            element={<Components.MoviesWatched />}
           />
 
           <Route exact path="/login" element={<Components.Login />} />

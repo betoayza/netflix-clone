@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export const useFetchMovieData = (imdbID) => {
-  const [movie, setMovie] = useState(null);
+  const [movieData, setMovieData] = useState(null);
   console.log(imdbID); //works
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export const useFetchMovieData = (imdbID) => {
         .then((res) => {
           console.log(res.data);
           if (res.data) {
-            setMovie(res.data);
+            setMovieData(res.data);
           }
         })
         .catch((error) => error);
@@ -30,5 +30,5 @@ export const useFetchMovieData = (imdbID) => {
     getMovieData();
   }, []);
 
-  return movie && movie;
+  return { movieData };
 };

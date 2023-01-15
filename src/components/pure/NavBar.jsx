@@ -73,7 +73,10 @@ export const NavBar = () => {
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="/movies/recommended">
+                      <a
+                        className="dropdown-item"
+                        href="/movies/recommended/weekly"
+                      >
                         Recommended
                       </a>
                     </li>
@@ -83,7 +86,10 @@ export const NavBar = () => {
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="/movies/watched">
+                      <a
+                        className="dropdown-item"
+                        href="/movies/watched/weekly"
+                      >
                         Watched
                       </a>
                     </li>
