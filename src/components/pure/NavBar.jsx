@@ -81,11 +81,6 @@ export const NavBar = () => {
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="/movies/played">
-                        Played
-                      </a>
-                    </li>
-                    <li>
                       <a
                         className="dropdown-item"
                         href="/movies/watched/weekly"

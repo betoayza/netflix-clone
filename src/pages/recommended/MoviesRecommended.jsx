@@ -44,7 +44,7 @@ export const MoviesRecommended = () => {
     <div className={"container text-center"}>
       <h2 style={{ color: "#e8f48c" }}>Recommended</h2>
       <div
-        className={"row row-cols-auto p-2 border"}
+        className={"row row-cols-auto p-2"}
         style={{ display: "flex", justifyContent: "center" }}
       >
         {movies.length ? (

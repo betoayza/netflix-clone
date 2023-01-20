@@ -6,7 +6,11 @@ export const Header = () => {
   return (
     <div className={"text-center"} style={{ color: "#e8f48c" }}>
       <h1>Netflix Clone</h1>
-      <img src={coverImage} className="img-fluid rounded" alt="Cover image" />
+      <img
+        src={coverImage}
+        className="img-fluid img-thumbnail rounded"
+        alt="Cover image"
+      />
     </div>
   );
 };
