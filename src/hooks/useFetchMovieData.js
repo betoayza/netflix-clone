@@ -3,16 +3,10 @@ import axios from "axios";
 
 export const useFetchMovieData = (imdbID) => {
   const [movieData, setMovieData] = useState(null);
-  console.log(imdbID); //works
+  // console.log(imdbID); //works
 
   useEffect(() => {
-    const getMovieData = async () => {
-      // headers: {
-      //   "Content-Type": "application/json",
-      //   "Access-Control-Allow-Origin": "*",
-      //   "Access-Control-Allsow-Headers": "*",
-      //   Accept: "application/json",
-      // },
+    const getMovieData = async () => {      
       const options = {
         timeout: 3000,
       };
@@ -20,7 +14,7 @@ export const useFetchMovieData = (imdbID) => {
       await axios
         .get(`http://www.omdbapi.com/?i=${imdbID}&apikey=4a08dcb`, options)
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if (res.data) {
             setMovieData(res.data);
           }

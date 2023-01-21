@@ -23,7 +23,7 @@ export const useGetWatchedMovies = () => {
       await axios
         .get(`https://api.trakt.tv/movies/watched/weekly`, options)
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if (res.data) {
             setWatchedMovies(res.data);
           }

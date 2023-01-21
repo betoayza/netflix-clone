@@ -15,7 +15,7 @@ export const useGetMoviesData = (arrIDs = []) => {
   axios
     .all(arrPromises)
     .then((responses) => {
-      console.log(responses);
+      // console.log(responses);
       setMoviesData(responses);
     })
     .catch((error) => {

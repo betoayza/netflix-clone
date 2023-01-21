@@ -10,7 +10,7 @@ export const LayoutBase = () => {
         <Outlet />
       </main>
       <footer className={"container text-center"} style={{ color: "white" }}>
-        Footer
+        @ 2023 betoayza | Copyright
       </footer>
     </div>
   );

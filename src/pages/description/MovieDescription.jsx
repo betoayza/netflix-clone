@@ -17,22 +17,18 @@ export const MovieDescription = () => {
   const [movie, setMovie] = useState(null);
 
   let { slug, imdbID } = useParams();
-  console.log(slug, imdbID); //works
+  // console.log(slug, imdbID); //works
 
   let { movieData } = useFetchMovieData(imdbID);
-  console.log("Movie data: ", movieData);
+  // console.log("Movie data: ", movieData);
 
   const { comments } = useGetComments(imdbID);
-  console.log("Comments: ", comments);
+  // console.log("Comments: ", comments);
 
   useEffect(() => {
     const getMovie = async () => {
       const options = {
-        headers: {
-          // "Content-Type": "application/json",
-          // "Access-Control-filmsow-Origin": "*",
-          // "Access-Control-filmsow-Headers": "*",
-          // Accept: "application/json",
+        headers: {         
           "trakt-api-key":
             "2f65384e8f78e76a296c8d382d90751aaa657ebd6ae035fe7ce19075d2ce5023",
           "trakt-api-version": 2,
@@ -44,8 +40,7 @@ export const MovieDescription = () => {
       await axios
         .get(`https://api.trakt.tv/movies/${slug}`, options)
         .then((res) => {
-          console.log(res.data);
-
+          //console.log(res.data);
           if (res.data) {
             setMovie(res.data);
           }

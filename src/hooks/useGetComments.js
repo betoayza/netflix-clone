@@ -21,7 +21,7 @@ export const useGetComments = (imdbID, sort = "newest") => {
       await axios
         .get(url, options)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           setComments(res.data);
         })
         .catch((error) => console.error(error));

@@ -27,7 +27,7 @@ export const MoviesPopular = () => {
       await axios
         .get(`${api}/movies/popular`, options)
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if (res.data) {
             setMovies(res.data);
             setLoader(false);
@@ -44,7 +44,7 @@ export const MoviesPopular = () => {
     <div className={"container text-center"}>
       <h2 style={{ color: "#e8f48c" }}>Popular</h2>
       <div
-        className={"row row-cols-auto p-2 border"}
+        className={"row row-cols-auto p-2"}
         style={{ display: "flex", justifyContent: "center" }}
       >
         {movies.length ? (

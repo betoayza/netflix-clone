@@ -27,7 +27,7 @@ export const MoviesRecommended = () => {
       await axios
         .get(`${api}/movies/recommended`, options)
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if (res.data) {
             setMovies(res.data);
             setLoader(false);

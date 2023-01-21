@@ -6,29 +6,12 @@ import { useGetWatchedMovies } from "../../hooks/useGetWatchedMovies";
 
 export const MoviesWatched = () => {
   const [loader, setLoader] = useState(true);
-  const [moviesData, setMoviesData] = useState([]);
   const { watchedMovies } = useGetWatchedMovies();
-  // let arrMoviesIDs = [];
-  let moviesDataAux = [];
+  // console.log(watchedMovies);
 
-  console.log(watchedMovies);
-
-  useEffect(() => {
-    setMoviesData(moviesDataAux);
-    setLoader(false);
-  }, [moviesDataAux]);
-
-  // if (watchedMovies.length) {
-  //   arrMoviesIDs = watchedMovies.map((movie) => {
-  //     return movie.movie.ids.imdb;
-  //   });
-
-  //   console.log(arrMoviesIDs);
-  // }
-
-  // moviesDataAux = useGetMoviesData(arrMoviesIDs);
-
-  // console.log(moviesData);
+  useEffect(() => { 
+    watchedMovies.length && setLoader(false);
+  }, [watchedMovies]);
 
   return loader ? (
     <Loader />

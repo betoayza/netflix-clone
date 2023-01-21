@@ -1,13 +1,19 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
+let activeStyle = {
+  textDecoration: "underline",
+};
 
 export const NavBar = () => {
   return (
     <div>
       <nav className="navbar navbar-dark bg-dark fixed-top">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Netflix Clone
+          <a className="navbar-brand" href="/">
+            <span style={{ fontWeight: "bold" }}>Netflix Clone</span>
           </a>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -61,6 +67,19 @@ export const NavBar = () => {
                   >
                     Movies
                   </a>
+
+                  {/* <NavLink
+                    to="#"
+                    className={({ isActive }) =>
+                      isActive ? "nav-link dropdown-toggle" : undefined
+                    }
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Movies
+                  </NavLink> */}
+
                   <ul className="dropdown-menu dropdown-menu-dark">
                     <li>
                       <a className="dropdown-item" href="/movies/trending">

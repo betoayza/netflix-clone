@@ -5,8 +5,7 @@ import { MoviesTrending } from "../trending/MoviesTrending";
 
 export const Home = () => {
   return (
-    <div>
-      <NavBar />
+    <div>      
       <Header />
       <MoviesTrending />
     </div>
