@@ -2,17 +2,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export const useFetchMovieData = (imdbID) => {
-  console.log(imdbID); //works
   const [movie, setMovie] = useState(null);
+  console.log(imdbID);
 
   useEffect(() => {
     const getMovieData = async () => {
-      // headers: {
-      //   "Content-Type": "application/json",
-      //   "Access-Control-Allow-Origin": "*",
-      //   "Access-Control-Allsow-Headers": "*",
-      //   Accept: "application/json",
-      // },
       const options = {
         timeout: 3000,
       };

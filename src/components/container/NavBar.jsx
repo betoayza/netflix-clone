@@ -1,19 +1,48 @@
-import React, { useState } from "react";
-import { Modal } from "./Modal";
+import React, { useState, useEffect } from "react";
+import { useGetMovies } from "../../hooks/useGetMovies";
+import { Modal } from "../pure/Modal";
+import { Movie } from "../pure/Movie";
 
 export const NavBar = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [isModalActivated, setIsModalActivated] = useState(false);
+  const [searchingText, setSearchingText] = useState("");
+  let arrMovies;
+
+  if (isSearching && isModalActivated) {
+    arrMovies = useGetMovies(searchingText);
+    console.log(arrMovies);
+  }
 
   const handleChange = (e) => {
+    console.log(e.target.value);
     e.target.value === ""
       ? (setIsSearching(false), setIsModalActivated(false))
       : (setIsSearching(true), setIsModalActivated(true));
+    setSearchingText(e.target.value);
   };
+
+  let searchInput = (
+    <input
+      className="form-control me-2"
+      type="search"
+      placeholder="Search..."
+      value={searchingText}
+      aria-label="Search"
+      style={{ color: "red" }}
+      onChange={handleChange}
+    />
+  );
+  
 
   return isModalActivated ? (
     <Modal>
-      <div></div>
+      <div>
+        {/* {searchInput} */}
+        {/* {arrMovies.map((movie, index) => {
+          return <Movie key={index} movie={movie} />;
+        })} */}
+      </div>
     </Modal>
   ) : (
     <div>
@@ -106,19 +135,8 @@ export const NavBar = () => {
                   </ul>
                 </li>
               </ul>
-              <form
-                className="d-flex mt-3"
-                role="search"
-                onSubmit={handleSubmit}
-              >
-                <input
-                  className="form-control me-2"
-                  type="search"
-                  placeholder="Search..."
-                  aria-label="Search"
-                  style={{ color: "red" }}
-                  onChange={handleChange}
-                />
+              <form className="d-flex mt-3" role="search">
+                {searchInput}
               </form>
             </div>
           </div>
