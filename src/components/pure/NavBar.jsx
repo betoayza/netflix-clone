@@ -1,12 +1,21 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-
-let activeStyle = {
-  textDecoration: "underline",
-};
+import React, { useState } from "react";
+import { Modal } from "./Modal";
 
 export const NavBar = () => {
-  return (
+  const [isSearching, setIsSearching] = useState(false);
+  const [isModalActivated, setIsModalActivated] = useState(false);
+
+  const handleChange = (e) => {
+    e.target.value === ""
+      ? (setIsSearching(false), setIsModalActivated(false))
+      : (setIsSearching(true), setIsModalActivated(true));
+  };
+
+  return isModalActivated ? (
+    <Modal>
+      <div></div>
+    </Modal>
+  ) : (
     <div>
       <nav className="navbar navbar-dark bg-dark fixed-top">
         <div className="container-fluid">
@@ -67,19 +76,6 @@ export const NavBar = () => {
                   >
                     Movies
                   </a>
-
-                  {/* <NavLink
-                    to="#"
-                    className={({ isActive }) =>
-                      isActive ? "nav-link dropdown-toggle" : undefined
-                    }
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Movies
-                  </NavLink> */}
-
                   <ul className="dropdown-menu dropdown-menu-dark">
                     <li>
                       <a className="dropdown-item" href="/movies/trending">
@@ -110,16 +106,19 @@ export const NavBar = () => {
                   </ul>
                 </li>
               </ul>
-              <form className="d-flex mt-3" role="search">
+              <form
+                className="d-flex mt-3"
+                role="search"
+                onSubmit={handleSubmit}
+              >
                 <input
                   className="form-control me-2"
                   type="search"
-                  placeholder="Search"
+                  placeholder="Search..."
                   aria-label="Search"
+                  style={{ color: "red" }}
+                  onChange={handleChange}
                 />
-                <button className="btn btn-success" type="submit">
-                  Search
-                </button>
               </form>
             </div>
           </div>
