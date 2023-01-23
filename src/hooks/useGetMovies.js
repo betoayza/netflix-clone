@@ -1,13 +1,19 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export const useGetMovies = ({ text }) => {
+export const useGetMovies = (text) => {
   const [movies, setMovies] = useState([]);
   console.log(text);
 
   useEffect(() => {
     const getMovies = async () => {
       const options = {
+        headers: {
+          "Content-Type": "application/json",
+          "trakt-api-key":
+            "2f65384e8f78e76a296c8d382d90751aaa657ebd6ae035fe7ce19075d2ce5023",
+          "trakt-api-version": 2,
+        },
         timeout: 3000,
       };
 
@@ -24,5 +30,5 @@ export const useGetMovies = ({ text }) => {
     getMovies();
   }, []);
 
-  return movies;
+  return { movies };
 };

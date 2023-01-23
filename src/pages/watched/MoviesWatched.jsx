@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Loader } from "../../components/pure/Loader";
 import { Movie } from "../../components/pure/Movie";
-import { useGetMoviesData } from "../../hooks/useGetMoviesData";
 import { useGetWatchedMovies } from "../../hooks/useGetWatchedMovies";
 
 export const MoviesWatched = () => {

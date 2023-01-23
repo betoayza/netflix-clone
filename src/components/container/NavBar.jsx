@@ -1,47 +1,64 @@
-import React, { useState, useEffect } from "react";
-import { useGetMovies } from "../../hooks/useGetMovies";
+import React, { useState } from "react";
+import { MoviesList } from "../pure/forms/MoviesList";
 import { Modal } from "../pure/Modal";
-import { Movie } from "../pure/Movie";
 
 export const NavBar = () => {
-  const [isSearching, setIsSearching] = useState(false);
   const [isModalActivated, setIsModalActivated] = useState(false);
   const [searchingText, setSearchingText] = useState("");
-  let arrMovies;
 
-  if (isSearching && isModalActivated) {
-    arrMovies = useGetMovies(searchingText);
-    console.log(arrMovies);
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsModalActivated(true);
+  };
 
   const handleChange = (e) => {
     console.log(e.target.value);
-    e.target.value === ""
-      ? (setIsSearching(false), setIsModalActivated(false))
-      : (setIsSearching(true), setIsModalActivated(true));
     setSearchingText(e.target.value);
   };
 
-  let searchInput = (
-    <input
-      className="form-control me-2"
-      type="search"
-      placeholder="Search..."
-      value={searchingText}
-      aria-label="Search"
-      style={{ color: "red" }}
-      onChange={handleChange}
-    />
-  );
-  
+  const handleClose = () => {
+    setIsModalActivated(false);
+    setSearchingText("");
+  };
 
-  return isModalActivated ? (
+  let searchForm = (
+    <div className={"container m-2 w-auto"}>
+      <form role="search" onSubmit={handleSubmit}>
+        <input
+          className="form-control"
+          type="search"
+          placeholder="Search..."
+          value={searchingText}
+          aria-label="Search"
+          style={{ color: "#800080", fontStyle: "italic", fontWeight: "bold" }}
+          onChange={handleChange}
+        />
+        <div
+          className={"mt-2"}
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <button type="submit" className="btn btn-primary">
+            Search
+          </button>
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={handleClose}
+          >
+            Close
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+
+  console.log(searchingText);
+
+  return isModalActivated && searchingText ? (
     <Modal>
-      <div>
-        {/* {searchInput} */}
-        {/* {arrMovies.map((movie, index) => {
-          return <Movie key={index} movie={movie} />;
-        })} */}
+      <div className={"vh-100"}>
+        {searchForm}
+        <MoviesList title={searchingText} />
       </div>
     </Modal>
   ) : (
@@ -135,9 +152,7 @@ export const NavBar = () => {
                   </ul>
                 </li>
               </ul>
-              <form className="d-flex mt-3" role="search">
-                {searchInput}
-              </form>
+              {searchForm}
             </div>
           </div>
         </div>
