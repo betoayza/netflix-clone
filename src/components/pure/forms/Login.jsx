@@ -7,8 +7,8 @@ export const Login = () => {
       style={{
         display: "grid",
         placeItems: "center",
-        height: "90vh"      
-      }}      
+        height: "90vh",        
+      }}     
     >
       <Formik
         initialValues={{
@@ -19,16 +19,18 @@ export const Login = () => {
           //   await new Promise((r) => setTimeout(r, 500));
           //   alert(JSON.stringify(values, null, 2));
           alert("Not ready yet...");
-        }}
+        }}      
       >
         <Form>
-          <div style={{ display: "grid", placeItems: "center" }}>
-            <h2 style={{ color: "#e8f48c" }}>Login</h2>
+          <div style={{ display: "grid", placeContent: "center" }}>
+            <h2 className={"text-center"} style={{ color: "#e8f48c" }}>
+              Login
+            </h2>
             <Field
               id="email"
               name="email"
               placeholder="Email..."
-              className={"form-control-lg"}
+              className={"form-row form-control"}
               required
             />
             <Field
@@ -36,7 +38,7 @@ export const Login = () => {
               name="password"
               placeholder="Password..."
               type="password"
-              className={"form-control-lg"}
+              className={"form-row form-control"}
               required
             />
           </div>

@@ -5,11 +5,11 @@ export const Movie = ({ movie }) => {
   const movieID = movie?.ids ? movie.ids.imdb : movie.imdbID;
   const { movieData } = useFetchMovieData(movieID);
 
-  console.log(movie);
-  console.log(movieID);
-  console.log(movieData);
+  // console.log(movie);
+  // console.log(movieID);
+  // console.log(movieData);
 
-  return movieData && movieData.Year <= 2023 && movieID && movie ? (
+  return movieData && movieData.Poster !== "N/A" && movieID && movie ? ( // movieData.Year <= 2023
     <div className={"m-1"}>
       <a
         style={{ color: "#e3ff00" }}

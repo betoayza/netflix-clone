@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Movie } from "./Movie";
+import { Movie } from "../pure/Movie";
 import axios from "axios";
 
 export const MoviesList = ({
@@ -11,7 +11,8 @@ export const MoviesList = ({
   const [movies, setMovies] = useState([]);
 
   const handleChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
+    setMovies([]);
     setText(e.target.value);
   };
 
@@ -35,23 +36,21 @@ export const MoviesList = ({
       await axios
         .get(`https://api.trakt.tv/search/movie?query=${text}`, options)
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if (res.data) {
             setMovies(res.data);
           }
         })
         .catch((error) => error);
     };
+    setMovies([]);
     !text ? setMovies([]) : getMovies();
   }, [text]);
 
-  console.log(text);
+  // console.log(text);
 
   return (
-    <div
-      className={"border vh-100"}
-      style={{ display: "grid", placeItems: "center" }}
-    >
+    <div className={"vh-100"} style={{ display: "grid", placeItems: "center" }}>
       <div className={"container m-2 w-auto"}>
         <input
           className="form-control"
@@ -74,8 +73,9 @@ export const MoviesList = ({
             type="button"
             className="btn btn-danger"
             onClick={handleClose}
+            style={{ borderRadius: 7 }}
           >
-            Close
+            <i style={{ fontSize: "20px" }} className="bi-x-circle-fill"></i>
           </button>
         </div>
       </div>

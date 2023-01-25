@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MoviesList } from "../pure/MoviesList";
+import { MoviesList } from "../container/MoviesList";
 import { Modal } from "../pure/Modal";
 
 export const NavBar = () => {
@@ -12,7 +12,7 @@ export const NavBar = () => {
   };
 
   const handleChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setSearchingText(e.target.value);
   };
 
@@ -33,14 +33,14 @@ export const NavBar = () => {
           style={{ display: "flex", justifyContent: "center" }}
         >
           <button type="submit" className="btn btn-primary">
-            Search
+            <i className="bi-search"></i>
           </button>
         </div>
       </form>
     </div>
   );
 
-  console.log(searchingText);
+  // console.log(searchingText);
 
   return isModalActivated ? (
     <Modal>

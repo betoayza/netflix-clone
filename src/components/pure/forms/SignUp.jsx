@@ -5,7 +5,7 @@ export const SignUp = () => {
   return (
     <div
       style={{ display: "grid", placeItems: "center", height: "90vh" }}
-      className={"w-auto"}
+      className={"container"}
     >
       <Formik
         initialValues={{
@@ -25,7 +25,7 @@ export const SignUp = () => {
               id="email"
               name="email"
               placeholder="Email..."
-              className={"form-control-lg"}
+              className={"form-row form-control"}
               required
             />
             <Field
@@ -33,7 +33,7 @@ export const SignUp = () => {
               name="password"
               placeholder="Password..."
               type="password"
-              className={"form-control-lg"}
+              className={"form-row form-control"}
               required
             />
           </div>
