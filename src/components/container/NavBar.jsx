@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MoviesList } from "../pure/forms/MoviesList";
+import { MoviesList } from "../pure/MoviesList";
 import { Modal } from "../pure/Modal";
 
 export const NavBar = () => {
@@ -14,11 +14,6 @@ export const NavBar = () => {
   const handleChange = (e) => {
     console.log(e.target.value);
     setSearchingText(e.target.value);
-  };
-
-  const handleClose = () => {
-    setIsModalActivated(false);
-    setSearchingText("");
   };
 
   let searchForm = (
@@ -40,13 +35,6 @@ export const NavBar = () => {
           <button type="submit" className="btn btn-primary">
             Search
           </button>
-          <button
-            type="button"
-            className="btn btn-danger"
-            onClick={handleClose}
-          >
-            Close
-          </button>
         </div>
       </form>
     </div>
@@ -54,12 +42,13 @@ export const NavBar = () => {
 
   console.log(searchingText);
 
-  return isModalActivated && searchingText ? (
+  return isModalActivated ? (
     <Modal>
-      <div className={"vh-100"}>
-        {searchForm}
-        <MoviesList title={searchingText} />
-      </div>
+      <MoviesList
+        searchingText={searchingText}
+        setSearchingText={setSearchingText}
+        setIsModalActivated={setIsModalActivated}
+      />
     </Modal>
   ) : (
     <div>
