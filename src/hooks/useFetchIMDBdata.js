@@ -12,7 +12,7 @@ export const useFetchMovieData = (imdbID) => {
       };
 
       await axios
-        .get(`http://www.omdbapi.com/?i=${imdbID}&apikey=4a08dcb`, options)
+        .get(`https://www.omdbapi.com/?i=${imdbID}&apikey=4a08dcb`, options)
         .then((res) => {
           // console.log(res.data);
           if (res.data) {

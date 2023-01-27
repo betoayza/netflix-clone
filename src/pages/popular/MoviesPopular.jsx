@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Loader } from "../../../../shopping-cart-siete-oro-frontend/src/components/Loader";
+import { Loader } from "../../components/pure/Loader";
 import { api } from "../../api/api";
 import { Movie } from "../../components/pure/Movie";
 
@@ -11,7 +11,7 @@ export const MoviesPopular = () => {
   useEffect(() => {
     const getMovies = async () => {
       const options = {
-        headers: {          
+        headers: {
           "trakt-api-key":
             "2f65384e8f78e76a296c8d382d90751aaa657ebd6ae035fe7ce19075d2ce5023",
           "trakt-api-version": 2,

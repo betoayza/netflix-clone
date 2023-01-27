@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { useFetchMovieData } from "../../hooks/useFetchMovieData";
 
 export const Movie = ({ movie }) => {
@@ -11,19 +12,18 @@ export const Movie = ({ movie }) => {
 
   return movieData && movieData.Poster !== "N/A" && movieID && movie ? ( // movieData.Year <= 2023
     <div className={"m-1"}>
-      <a
-        style={{ color: "#e3ff00" }}
-        href={`/movies/${movie?.ids ? movie.ids.slug : movie.Title}/${
-          // hay que mandar el slug
+      <NavLink
+        to={`/movies/${movie?.ids ? movie.ids.slug : movie.Title}/${
           movieData.imdbID
         }`}
+        style={({ isActive }) => (isActive ? undefined : undefined)}
       >
         <img
           src={movieData.Poster}
           className="img-fluid img-thumbnail rounded"
           alt={`Movie`}
         />
-      </a>
+      </NavLink>
     </div>
   ) : null;
 };

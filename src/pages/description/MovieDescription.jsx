@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Comment } from "../../components/pure/Comment";
+import { Modal } from "../../components/pure/Modal";
 import { useFetchMovieData } from "../../hooks/useFetchMovieData";
 import { useGetComments } from "../../hooks/useGetComments";
 
@@ -15,6 +16,7 @@ const header3Style = {
 
 export const MovieDescription = () => {
   const [movie, setMovie] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   let { slug, imdbID } = useParams();
   // console.log(slug, imdbID); //works
@@ -28,7 +30,7 @@ export const MovieDescription = () => {
   useEffect(() => {
     const getMovie = async () => {
       const options = {
-        headers: {         
+        headers: {
           "trakt-api-key":
             "2f65384e8f78e76a296c8d382d90751aaa657ebd6ae035fe7ce19075d2ce5023",
           "trakt-api-version": 2,
@@ -51,10 +53,33 @@ export const MovieDescription = () => {
   }, []);
 
   const handlePlay = () => {
-    alert("Not working for now...");
+    setIsModalOpen(true);
   };
 
-  return (
+  const handleClose = () => {
+    setIsModalOpen(false);
+  };
+
+  return isModalOpen ? (
+    <Modal>
+      <div
+        className={"text-center"}
+        style={{ display: "grid", placeItems: "center" }}
+      >
+        <h3 style={{ color: "#ff7f50" }}>
+          You must subscribe for watch this ;)
+        </h3>
+        <button
+          type="button"
+          className="btn btn-danger"
+          onClick={handleClose}
+          style={{ borderRadius: 7 }}
+        >
+          <i style={{ fontSize: "20px" }} className="bi-x-circle-fill"></i>
+        </button>
+      </div>
+    </Modal>
+  ) : (
     movie && (
       <div style={{ color: "white", display: "grid", placeItems: "center" }}>
         <h1 style={header1Style}>{movie.title}</h1>

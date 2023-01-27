@@ -1,10 +1,21 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { MoviesList } from "../container/MoviesList";
 import { Modal } from "../pure/Modal";
 
 export const NavBar = () => {
   const [isModalActivated, setIsModalActivated] = useState(false);
   const [searchingText, setSearchingText] = useState("");
+
+  const activeStyle = {
+    textDecoration: "none",
+    color: "#9400d3",
+  };
+
+  const inactiveStyle = {
+    textDecoration: "none",
+    color: "white",
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,10 +65,13 @@ export const NavBar = () => {
     <div>
       <nav className="navbar navbar-dark bg-dark fixed-top">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            <span style={{ fontWeight: "bold" }}>Netflix Clone</span>
-          </a>
-
+          <NavLink
+            to="/"
+            style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
+            className={"navbar-brand"}
+          >
+            <span style={{ fontWeight: "bold" }}>Netflix Clone</span>{" "}
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -87,19 +101,36 @@ export const NavBar = () => {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/">
+                  <NavLink
+                    to="/"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : inactiveStyle
+                    }
+                    className={"nav-link active"}
+                    aria-current="page"
+                  >
                     Home
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/login">
+                  <NavLink
+                    to="login"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : inactiveStyle
+                    }
+                  >
                     Login
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/signup">
-                    Sign Up
-                  </a>
+                  <NavLink
+                    to="signup"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : inactiveStyle
+                    }
+                  >
+                    SignUp
+                  </NavLink>
                 </li>
                 <li className="nav-item dropdown">
                   <a
@@ -108,35 +139,50 @@ export const NavBar = () => {
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
+                    style={{ color: "white" }}
                   >
                     Movies
                   </a>
                   <ul className="dropdown-menu dropdown-menu-dark">
                     <li>
-                      <a className="dropdown-item" href="/movies/trending">
+                      <NavLink
+                        to="/movies/trending"
+                        style={({ isActive }) =>
+                          isActive ? activeStyle : inactiveStyle
+                        }
+                      >
                         Trending
-                      </a>
+                      </NavLink>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="/movies/popular">
+                      <NavLink
+                        to="/movies/popular"
+                        style={({ isActive }) =>
+                          isActive ? activeStyle : inactiveStyle
+                        }
+                      >
                         Popular
-                      </a>
+                      </NavLink>
                     </li>
                     <li>
-                      <a
-                        className="dropdown-item"
-                        href="/movies/recommended/weekly"
+                      <NavLink
+                        to="/movies/recommended/weekly"
+                        style={({ isActive }) =>
+                          isActive ? activeStyle : inactiveStyle
+                        }
                       >
                         Recommended
-                      </a>
+                      </NavLink>
                     </li>
                     <li>
-                      <a
-                        className="dropdown-item"
-                        href="/movies/watched/weekly"
+                      <NavLink
+                        to="/movies/watched/weekly"
+                        style={({ isActive }) =>
+                          isActive ? activeStyle : inactiveStyle
+                        }
                       >
                         Watched
-                      </a>
+                      </NavLink>
                     </li>
                   </ul>
                 </li>

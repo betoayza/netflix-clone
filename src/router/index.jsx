@@ -1,8 +1,8 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import * as Components from "../index/indexComponents";
-import "bootstrap-icons/font/bootstrap-icons.css";
 
-export const router = createBrowserRouter([
+
+export const router = createHashRouter([
   {
     path: "/",
     element: <Components.LayoutBase />,

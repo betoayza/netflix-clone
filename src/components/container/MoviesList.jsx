@@ -87,7 +87,7 @@ export const MoviesList = ({
         >
           {movies &&
             movies.map((movie, index) => {
-              console.log(movie);
+              // console.log(movie);
               return <Movie key={index} movie={movie.movie} />;
             })}
         </div>

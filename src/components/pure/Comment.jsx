@@ -6,7 +6,7 @@ export const Comment = ({ comment }) => {
       className={""}
       style={{
         border: "3px solid",
-        borderColor: "green",
+        borderColor: "#800080",
         borderRadius: "10px",
       }}
     >

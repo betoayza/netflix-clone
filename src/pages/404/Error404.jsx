@@ -7,8 +7,8 @@ export const Error404 = () => {
   console.log(error);
 
   return (
-    <div>
-      <h1 style={{ color: "#e8f48c" }} className={"text-center"}>
+    <div className={"text-center"}>
+      <h1 style={{ color: "#e8f48c" }}>
         {error.status + ": " + error.statusText}
       </h1>
       <div style={{ display: "flex", justifyContent: "center" }}>

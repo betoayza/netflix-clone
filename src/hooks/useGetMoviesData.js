@@ -6,7 +6,7 @@ export const useGetMoviesData = (arrIDs = []) => {
   console.log("asd: ", arrIDs);
 
   let arrPromises = arrIDs.map((id) => {
-    let url = `http://www.omdbapi.com/?i=${id}&apikey=4a08dcb`;
+    let url = `https://www.omdbapi.com/?i=${id}&apikey=4a08dcb`;
     return axios.get(url);
   });
 
