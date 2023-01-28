@@ -1,7 +1,6 @@
 import { createHashRouter } from "react-router-dom";
 import * as Components from "../index/indexComponents";
 
-
 export const router = createHashRouter([
   {
     path: "/",
@@ -39,6 +38,10 @@ export const router = createHashRouter([
       {
         path: "signup",
         element: <Components.SignUp />,
+      },
+      {
+        path: "about",
+        element: <Components.About />,
       },
     ],
   },

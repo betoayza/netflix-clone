@@ -4,7 +4,7 @@ import { NavBar } from "../components/container/NavBar";
 
 export const LayoutBase = () => {
   return (
-    <div>
+    <div style={{ minHeight: "100vh" }} className={""}>
       <NavBar />
       <main className={"container"} style={{ marginTop: "70px" }}>
         <Outlet />
