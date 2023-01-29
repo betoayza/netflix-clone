@@ -6,7 +6,10 @@ export const LayoutBase = () => {
   return (
     <div style={{ height: "auto" }}>
       <NavBar />
-      <main className={"container"} style={{ marginTop: "70px" }}>
+      <main
+        className={"container"}
+        style={{ marginTop: "70px", marginBottom: "50px" }}
+      >
         <Outlet />
       </main>
       <footer className={"text-center fixed-bottom"} style={{ color: "white" }}>
