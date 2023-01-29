@@ -8,7 +8,7 @@ export const Header = () => {
       <h1>Netflix Clone</h1>
       <img
         src={coverImage}
-        className="img-fluid img-thumbnail rounded"
+        className="img-fluid img-thumbnail rounded mb-2"
         alt="Cover image"
       />
     </div>

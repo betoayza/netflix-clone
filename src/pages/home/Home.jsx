@@ -4,7 +4,7 @@ import { MoviesTrending } from "../trending/MoviesTrending";
 
 export const Home = () => {
   return (
-    <div>
+    <div className={"h-auto"}>
       <Header />
       <MoviesTrending />
     </div>

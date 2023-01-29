@@ -19,6 +19,8 @@ export const MoviesList = ({
   const handleClose = () => {
     setIsModalActivated(false);
     setSearchingText("");
+    setText("");
+    document.body.removeAttribute("style");
   };
 
   useEffect(() => {
