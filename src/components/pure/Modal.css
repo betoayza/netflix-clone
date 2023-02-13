@@ -12,17 +12,10 @@
 }
 
 .modal.is-open {
-  display: flex;
-  /* justify-content: center;
-    align-items: center; */
+  display: flex;  
 }
 
 .modal-div {
   position: relative;
 }
 
-/* .modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-} */
