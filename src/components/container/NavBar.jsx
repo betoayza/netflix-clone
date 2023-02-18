@@ -129,7 +129,7 @@ export const NavBar = () => {
                       isActive ? activeStyle : inactiveStyle
                     }
                   >
-                    Sign Up
+                    Sign up
                   </NavLink>
                 </li>
                 <li className="nav-item dropdown">
