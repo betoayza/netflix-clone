@@ -9,7 +9,7 @@ export const useGetWatchedMovies = () => {
       const options = {
         headers: {
           "trakt-api-key":
-            "2f65384e8f78e76a296c8d382d90751aaa657ebd6ae035fe7ce19075d2ce5023",
+            `${import.meta.env.VITE_API_KEY}`,
           "trakt-api-version": 2,
           Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
         },
@@ -17,7 +17,7 @@ export const useGetWatchedMovies = () => {
       };
 
       await axios
-        .get(`https://api.trakt.tv/movies/watched/weekly`, options)
+        .get(`${import.meta.env.VITE_API}/movies/watched/weekly`, options)
         .then((res) => {
           // console.log(res.data);
           if (res.data) {

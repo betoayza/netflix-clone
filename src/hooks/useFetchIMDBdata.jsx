@@ -12,7 +12,7 @@ export const useFetchMovieData = (imdbID) => {
       };
 
       await axios
-        .get(`https://www.omdbapi.com/?i=${imdbID}&apikey=4a08dcb`, options)
+        .get(`${import.meta.env.VITE_API_OMDBAPI}/?i=${imdbID}&apikey=${import.meta.env.VITE_API_KEY_OMDBAPI}`, options)
         .then((res) => {
           // console.log(res.data);
           if (res.data) {
@@ -24,5 +24,5 @@ export const useFetchMovieData = (imdbID) => {
     getMovieData();
   }, []);
 
-  return movie && movie;
+  return movie // && movie;
 };

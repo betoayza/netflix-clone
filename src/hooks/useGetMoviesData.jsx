@@ -3,14 +3,14 @@ import axios from "axios";
 
 export const useGetMoviesData = (arrIDs = []) => {
   const [moviesData, setMoviesData] = useState([]);
-  console.log("asd: ", arrIDs);
+  // console.log("asd: ", arrIDs);
 
   let arrPromises = arrIDs.map((id) => {
-    let url = `https://www.omdbapi.com/?i=${id}&apikey=4a08dcb`;
+    let url = `${import.meta.env.VITE_API_OMDBAPI}/?i=${id}&apikey=${import.meta.env.VITE_API_KEY_OMDBAPI}`;
     return axios.get(url);
   });
 
-  console.log("uhuf: ", arrPromises);
+  // console.log("uhuf: ", arrPromises);
 
   axios
     .all(arrPromises)
