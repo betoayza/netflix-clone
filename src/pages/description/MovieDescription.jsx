@@ -31,8 +31,7 @@ export const MovieDescription = () => {
     const getMovie = async () => {
       const options = {
         headers: {
-          "trakt-api-key":
-            "2f65384e8f78e76a296c8d382d90751aaa657ebd6ae035fe7ce19075d2ce5023",
+          "trakt-api-key": `${import.meta.env.VITE_API_KEY}`,
           "trakt-api-version": 2,
           Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
         },
