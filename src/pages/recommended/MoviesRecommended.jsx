@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { api } from "../../api/api";
 import { Loader } from "../../components/pure/Loader";
 import { Movie } from "../../components/pure/Movie";
 
@@ -11,13 +10,9 @@ export const MoviesRecommended = () => {
   useEffect(() => {
     const getMovies = async () => {
       const options = {
-        headers: {
-          // "Access-Control-Allow-Origin": "*",
-          // "Access-Control-Allow-Headers": "*",
-          // Accept: "application/json",
-          // "Content-Type": "application/json",
+        headers: {          
           "trakt-api-key":
-            "2f65384e8f78e76a296c8d382d90751aaa657ebd6ae035fe7ce19075d2ce5023",
+            `${import.meta.env.VITE_API_KEY}`,
           "trakt-api-version": 2,
           Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
         },
@@ -25,7 +20,7 @@ export const MoviesRecommended = () => {
       };
 
       await axios
-        .get(`${api}/movies/recommended`, options)
+        .get(`${import.meta.env.VITE_API}/movies/recommended`, options)
         .then((res) => {
           // console.log(res.data);
           if (res.data) {
