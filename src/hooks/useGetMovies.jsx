@@ -10,8 +10,7 @@ export const useGetMovies = (text) => {
       const options = {
         headers: {
           "Content-Type": "application/json",
-          "trakt-api-key":
-            `${import.meta.env.VITE_API_KEY}`,
+          "trakt-api-key": `${import.meta.env.VITE_API_KEY}`,
           "trakt-api-version": 2,
         },
         timeout: 3000,

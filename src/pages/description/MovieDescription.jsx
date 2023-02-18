@@ -40,7 +40,7 @@ export const MovieDescription = () => {
       };
 
       await axios
-        .get(`https://api.trakt.tv/movies/${slug}`, options)
+        .get(`${import.meta.env.VITE_API}/movies/${slug}`, options)
         .then((res) => {
           //console.log(res.data);
           if (res.data) {
@@ -82,7 +82,9 @@ export const MovieDescription = () => {
   ) : (
     movie && (
       <div style={{ color: "white", display: "grid", placeItems: "center" }}>
-        <h1 style={header1Style}>{movie.title}</h1>
+        <h1 style={header1Style} className={"text-center"}>
+          {movie.title}
+        </h1>
         <img
           src={movieData.Poster}
           className="img-fluid img-thumbnail"
