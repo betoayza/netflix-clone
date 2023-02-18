@@ -8,8 +8,7 @@ export const useGetWatchedMovies = () => {
     const getMovies = async () => {
       const options = {
         headers: {
-          "trakt-api-key":
-            `${import.meta.env.VITE_API_KEY}`,
+          "trakt-api-key": `${import.meta.env.VITE_API_KEY}`,
           "trakt-api-version": 2,
           Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
         },
