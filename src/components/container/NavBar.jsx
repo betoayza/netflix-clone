@@ -196,6 +196,16 @@ export const NavBar = () => {
                     About
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to="contact"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : inactiveStyle
+                    }
+                  >
+                    Contact
+                  </NavLink>
+                </li>
               </ul>
               {searchForm}
             </div>

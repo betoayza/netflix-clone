@@ -43,6 +43,10 @@ export const router = createHashRouter([
         path: "about",
         element: <Components.About />,
       },
+      {
+        path: "contact",
+        element: <Components.Contact />,
+      },
     ],
   },
 ]);

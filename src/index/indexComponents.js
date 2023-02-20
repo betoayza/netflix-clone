@@ -9,7 +9,7 @@ import { Error404 } from "../pages/404/Error404";
 import { MoviesWatched } from "../pages/watched/MoviesWatched";
 import { LayoutBase } from "../layout/LayoutBase";
 import { About } from "../pages/about/About";
-
+import { Contact } from "../pages/contact/Contact";
 
 export {
   MoviesTrending,
@@ -22,5 +22,6 @@ export {
   Error404,
   MoviesWatched,
   LayoutBase,
-  About
+  About,
+  Contact,
 };
